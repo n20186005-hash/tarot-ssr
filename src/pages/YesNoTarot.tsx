@@ -6,10 +6,14 @@ import { Link } from "wouter";
 import { TarotCard } from "@/components/TarotCard";
 import { TAROT_DECK } from "@/lib/tarot-data";
 import type { TarotCardData } from "@/lib/tarot-data";
+import { useTranslation } from "react-i18next";
+import { SEO } from "@/components/SEO";
 
 export default function YesNoTarot() {
   const [step, setStep] = useState<"intro" | "shuffling" | "result">("intro");
   const [resultCard, setResultCard] = useState<{data: TarotCardData, isReversed: boolean} | null>(null);
+  const { t, i18n } = useTranslation();
+  const lang = i18n.language === "zh-Hant" ? "zh" : "en";
 
   const startReading = () => {
     setStep("shuffling");
@@ -38,6 +42,8 @@ export default function YesNoTarot() {
 
   return (
     <div className="min-h-screen bg-background text-foreground p-6 flex flex-col items-center justify-center relative overflow-hidden">
+      <SEO title={t("yes_no.title")} description={t("yes_no.subtitle")} path="/yes-no-tarot" />
+      
       {/* Background Elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse" />
@@ -48,7 +54,7 @@ export default function YesNoTarot() {
       <header className="absolute top-0 left-0 w-full p-6 flex items-center justify-between z-20">
         <Link href="/">
           <Button variant="ghost" className="text-muted-foreground hover:text-foreground">
-            <ArrowLeft className="w-4 h-4 mr-2" /> 返回首页
+            <ArrowLeft className="w-4 h-4 mr-2" /> {t("common.back_home")}
           </Button>
         </Link>
       </header>
@@ -69,11 +75,11 @@ export default function YesNoTarot() {
               </div>
               
               <h1 className="text-4xl md:text-5xl font-serif font-bold text-gradient-gold">
-                Yes/No 快速问答
+                {t("yes_no.title")}
               </h1>
               
               <p className="text-xl text-muted-foreground leading-relaxed max-w-lg mx-auto">
-                心中默念一个具体的问题（例如："我应该接受这份工作吗？"），让塔罗牌给你最直接的指引。
+                {t("yes_no.subtitle")}
               </p>
               
               <div className="pt-8">
@@ -82,7 +88,7 @@ export default function YesNoTarot() {
                   onClick={startReading}
                   className="h-16 px-12 text-xl rounded-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold shadow-gold hover:scale-105 transition-all"
                 >
-                  开始抽牌
+                  {t("yes_no.draw_btn")}
                 </Button>
               </div>
             </motion.div>
@@ -119,7 +125,7 @@ export default function YesNoTarot() {
                 ))}
               </div>
               <p className="text-xl font-serif text-primary animate-pulse">
-                正在连接你的能量...
+                {t("yes_no.connecting")}
               </p>
             </motion.div>
           )}
@@ -145,15 +151,15 @@ export default function YesNoTarot() {
 
                 <div className="space-y-4 max-w-md">
                   <h2 className="text-3xl font-serif font-bold text-primary">
-                    {resultCard.data.name_cn} {resultCard.isReversed && "(逆位)"}
+                    {resultCard.data.name[lang]} {resultCard.isReversed && `(${t("common.reversed")})`}
                   </h2>
                   
                   <div className="inline-block px-4 py-2 rounded-full bg-white/10 border border-white/20 text-lg font-bold mb-4">
-                    回答: {getYesNoAnswer(resultCard.data, resultCard.isReversed)}
+                    {t("yes_no.answer")}: {getYesNoAnswer(resultCard.data, resultCard.isReversed)}
                   </div>
                   
                   <p className="text-lg text-foreground/90 leading-relaxed">
-                    {resultCard.isReversed ? resultCard.data.meaning_reversed : resultCard.data.meaning_upright}
+                    {resultCard.isReversed ? resultCard.data.meanings[lang].reversed : resultCard.data.meanings[lang].upright}
                   </p>
                 </div>
               </div>
@@ -164,7 +170,7 @@ export default function YesNoTarot() {
                   onClick={resetReading}
                   className="rounded-full px-8 py-6 border-primary/30 hover:bg-primary/10"
                 >
-                  <RefreshCw className="w-4 h-4 mr-2" /> 问另一个问题
+                  <RefreshCw className="w-4 h-4 mr-2" /> {t("yes_no.ask_another")}
                 </Button>
               </div>
             </motion.div>
@@ -184,8 +190,8 @@ function getYesNoAnswer(card: TarotCardData, isReversed: boolean): string {
   const positiveIds = ["sun", "star", "world", "empress", "lovers", "strength", "chariot", "magician"];
   const negativeIds = ["tower", "devil", "death", "moon"];
   
-  if (positiveIds.includes(card.id)) return isReversed ? "No (阻碍)" : "Yes";
-  if (negativeIds.includes(card.id)) return isReversed ? "Maybe (转机)" : "No";
+  if (positiveIds.includes(card.id)) return isReversed ? "No (Obstacle)" : "Yes";
+  if (negativeIds.includes(card.id)) return isReversed ? "Maybe (Turning Point)" : "No";
   
-  return "Maybe (视情况而定)";
+  return "Maybe";
 }

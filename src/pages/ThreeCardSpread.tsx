@@ -6,10 +6,13 @@ import { Button } from "@/components/ui/button";
 import { ReadingResult } from "@/components/ReadingResult";
 import { TAROT_DECK } from "@/lib/tarot-data";
 import type { TarotCardData } from "@/lib/tarot-data";
+import { useTranslation } from "react-i18next";
+import { SEO } from "@/components/SEO";
 
 export default function ThreeCardSpread() {
   const [cards, setCards] = useState<Array<{data: TarotCardData, isReversed: boolean, position: string}> | null>(null);
   const [isShuffling, setIsShuffling] = useState(false);
+  const { t } = useTranslation();
 
   const startReading = () => {
     setIsShuffling(true);
@@ -19,7 +22,7 @@ export default function ThreeCardSpread() {
       const drawn = shuffled.slice(0, 3).map((card, i) => ({
         data: card,
         isReversed: Math.random() > 0.5,
-        position: i === 0 ? "过去 (The Past)" : i === 1 ? "现在 (The Present)" : "未来 (The Future)"
+        position: i === 0 ? t("three_card.past") : i === 1 ? t("three_card.present") : t("three_card.future")
       }));
       
       setCards(drawn);
@@ -29,6 +32,8 @@ export default function ThreeCardSpread() {
 
   return (
     <div className="min-h-screen bg-background text-foreground p-6 relative">
+       <SEO title={t("three_card.title")} description={t("three_card.subtitle")} path="/three-card" />
+       
        {/* Background */}
        <div className="fixed inset-0 z-0 bg-[url(@/assets/hero_bg.jpeg)] bg-cover bg-center opacity-20 pointer-events-none" />
 
@@ -36,7 +41,7 @@ export default function ThreeCardSpread() {
       <header className="relative z-10 flex items-center mb-8">
         <Link href="/">
           <Button variant="ghost" className="text-muted-foreground hover:text-foreground">
-            <ArrowLeft className="w-4 h-4 mr-2" /> 返回首页
+            <ArrowLeft className="w-4 h-4 mr-2" /> {t("common.back_home")}
           </Button>
         </Link>
       </header>
@@ -45,11 +50,10 @@ export default function ThreeCardSpread() {
         {!cards && !isShuffling && (
           <div className="space-y-8 max-w-2xl animate-in fade-in zoom-in duration-500">
             <h1 className="text-4xl md:text-5xl font-serif font-bold text-gradient-gold">
-              三卡时间流牌阵
+              {t("three_card.title")}
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed">
-              这是最经典的塔罗牌阵之一。它通过"过去-现在-未来"的时间轴，
-              帮助你理清事情的来龙去脉，洞察潜在的发展趋势。
+              {t("three_card.subtitle")}
             </p>
             <div className="pt-8">
               <Button 
@@ -57,7 +61,7 @@ export default function ThreeCardSpread() {
                 onClick={startReading}
                 className="h-16 px-12 text-xl rounded-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold shadow-gold hover:scale-105 transition-all"
               >
-                开始深度解读
+                {t("three_card.start_btn")}
               </Button>
             </div>
           </div>
@@ -86,7 +90,7 @@ export default function ThreeCardSpread() {
               ))}
             </div>
             <p className="text-xl font-serif text-primary animate-pulse">
-              洗牌中，请保持专注...
+              {t("three_card.shuffling")}
             </p>
           </div>
         )}

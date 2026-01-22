@@ -6,9 +6,13 @@ import { TarotCard } from "@/components/TarotCard";
 import { TAROT_DECK } from "@/lib/tarot-data";
 import type { TarotCardData } from "@/lib/tarot-data";
 import { toast } from "sonner";
+import { useTranslation } from "react-i18next";
+import { SEO } from "@/components/SEO";
 
 export default function DailyTarot() {
   const [card, setCard] = useState<{data: TarotCardData, isReversed: boolean} | null>(null);
+  const { t, i18n } = useTranslation();
+  const lang = i18n.language === "zh-Hant" ? "zh" : "en";
 
   useEffect(() => {
     // Check local storage for today's card
@@ -42,18 +46,20 @@ export default function DailyTarot() {
   };
 
   const handleShare = () => {
-    toast.success("分享功能开发中！即将支持生成精美卡片。");
+    toast.success(t("common.share_feature_coming"));
   };
 
   return (
     <div className="min-h-screen bg-background text-foreground p-6 relative">
+       <SEO title={t("daily.title")} description={t("daily.subtitle_1")} path="/daily-tarot" />
+       
        <div className="fixed inset-0 z-0 bg-gradient-to-b from-primary/5 to-background pointer-events-none" />
 
       {/* Header */}
       <header className="relative z-10 flex items-center justify-between mb-8 container mx-auto">
         <Link href="/">
           <Button variant="ghost" className="text-muted-foreground hover:text-foreground">
-            <ArrowLeft className="w-4 h-4 mr-2" /> 返回首页
+            <ArrowLeft className="w-4 h-4 mr-2" /> {t("common.back_home")}
           </Button>
         </Link>
         {card && (
@@ -67,11 +73,11 @@ export default function DailyTarot() {
         {!card ? (
           <div className="text-center space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
             <h1 className="text-4xl md:text-6xl font-serif font-bold text-primary mb-4">
-              今日运势指引
+              {t("daily.title")}
             </h1>
             <p className="text-xl text-muted-foreground max-w-lg mx-auto">
-              新的一天，宇宙想对你说什么？<br/>
-              抽取一张牌，作为今天的精神图腾。
+              {t("daily.subtitle_1")}<br/>
+              {t("daily.subtitle_2")}
             </p>
             
             <div 
@@ -80,7 +86,7 @@ export default function DailyTarot() {
             />
             
             <p className="text-sm text-muted-foreground animate-pulse">
-              点击牌背抽取
+              {t("daily.tap_hint")}
             </p>
           </div>
         ) : (
@@ -99,27 +105,25 @@ export default function DailyTarot() {
              <div className="flex-1 space-y-6 text-center md:text-left">
                <div className="space-y-2">
                  <span className="text-sm font-bold tracking-widest text-primary uppercase">
-                   Daily Guidance
+                   {t("daily.guidance_label")}
                  </span>
                  <h2 className="text-4xl font-serif font-bold text-foreground">
-                   {card.data.name_cn} {card.isReversed && "(逆位)"}
+                   {card.data.name[lang]} {card.isReversed && `(${t("common.reversed")})`}
                  </h2>
                </div>
                
                <p className="text-lg leading-relaxed text-foreground/90 border-l-4 border-primary pl-6 py-2">
-                 {card.isReversed ? card.data.meaning_reversed : card.data.meaning_upright}
+                 {card.isReversed ? card.data.meanings[lang].reversed : card.data.meanings[lang].upright}
                </p>
                
                <div className="bg-card/50 p-6 rounded-xl border border-white/10 space-y-4">
-                 <h3 className="font-bold text-primary">今日建议</h3>
+                 <h3 className="font-bold text-primary">{t("daily.advice_title")}</h3>
                  <p className="text-muted-foreground">
-                   今天，试着体现{card.data.name_cn}的能量。
-                   {card.isReversed 
-                     ? "注意不要陷入负面的情绪循环，保持觉察。" 
-                     : "保持开放的心态，让这种积极的品质引导你的行动。"}
-                   关注以下关键词：
+                   {t(card.isReversed ? "daily.advice_content_reversed" : "daily.advice_content_upright", { card: card.data.name[lang] })}
+                   {" "}
+                   {t("daily.keywords_label")}:
                    <span className="text-foreground font-medium mx-2">
-                     {card.data.keywords.join("、")}
+                     {card.data.keywords[lang].join("、")}
                    </span>
                  </p>
                </div>
