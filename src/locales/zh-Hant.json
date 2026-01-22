@@ -1,0 +1,68 @@
+{
+  "meta": {
+    "title": "塔羅AI占卜 - 你的在線心靈療癒所",
+    "description": "免費在線塔羅占卜，提供AI深度解讀、每日運勢、Yes/No快速問答。探索愛情、事業與人生的指引。"
+  },
+  "common": {
+    "back_home": "返回首頁",
+    "coming_soon": "即將上線",
+    "start_reading": "開始占卜",
+    "loading": "載入中...",
+    "reversed": "逆位",
+    "share": "分享",
+    "share_feature_coming": "分享功能開發中！即將支持生成精美卡片。"
+  },
+  "home": {
+    "badge": "AI 驅動的心靈療癒所",
+    "hero_title_1": "洞悉命運",
+    "hero_title_2": "指引未來",
+    "hero_desc": "結合古老塔羅智慧與現代 AI 深度解讀，為你撥開迷霧，尋找內心的答案。",
+    "cta_daily": "抽取今日指引",
+    "cta_yes_no": "Yes/No 快速問答",
+    "features_title": "探索你的專屬牌陣",
+    "features_desc": "無論你是需要快速的指引，還是深度的洞察，我們都為你準備了最適合的解讀方式。",
+    "daily_title": "每日運勢",
+    "daily_desc": "清晨的第一縷指引，為你開啟充滿能量的一天。探索今日的主題與建議。",
+    "yes_no_title": "Yes/No 問答",
+    "yes_no_desc": "猶豫不決？心中有具體的疑問？讓塔羅牌給你最直接的答案與建議。",
+    "three_card_title": "三卡牌陣",
+    "three_card_desc": "經典的時間流牌陣。深度解析過去的影響、現在的狀況與未來的趨勢。",
+    "love_title": "愛情塔羅",
+    "love_desc": "Ta在想什麼？我們的關係將走向何方？探索情感世界的隱秘真相。",
+    "career_title": "事業指引",
+    "career_desc": "面臨職業抉擇？尋找突破瓶頸的方向？為你的事業發展提供策略建議。"
+  },
+  "yes_no": {
+    "title": "Yes/No 快速問答",
+    "subtitle": "心中默唸一個具體的問題（例如：「我應該接受這份工作嗎？」），讓塔羅牌給你最直接的指引。",
+    "draw_btn": "開始抽牌",
+    "connecting": "正在連接你的能量...",
+    "answer": "回答",
+    "ask_another": "問另一個問題"
+  },
+  "three_card": {
+    "title": "三卡時間流牌陣",
+    "subtitle": "這是最經典的塔羅牌陣之一。它通過「過去-現在-未來」的時間軸，幫助你理清事情的來龍去脈，洞察潛在的發展趨勢。",
+    "start_btn": "開始深度解讀",
+    "shuffling": "洗牌中，請保持專注...",
+    "past": "過去 (The Past)",
+    "present": "現在 (The Present)",
+    "future": "未來 (The Future)"
+  },
+  "daily": {
+    "title": "今日運勢指引",
+    "subtitle_1": "新的一天，宇宙想對你說什麼？",
+    "subtitle_2": "抽取一張牌，作為今天的精神圖騰。",
+    "tap_hint": "點擊牌背抽取",
+    "guidance_label": "Daily Guidance",
+    "advice_title": "今日建議",
+    "advice_content_upright": "今天，試著體現{{card}}的能量。保持開放的心態，讓這種積極的品質引導你的行動。",
+    "advice_content_reversed": "今天，試著體現{{card}}的能量。注意不要陷入負面的情緒循環，保持覺察。",
+    "keywords_label": "關注關鍵詞"
+  },
+  "reading": {
+    "ai_title": "AI 深度解讀",
+    "ai_mock_content": "根據牌陣顯示，{{cardName}}揭示了這一問題的核心能量。{{themes}} 建議你保持覺察，聆聽內心的指引。",
+    "new_reading": "開始新的占卜"
+  }
+}
