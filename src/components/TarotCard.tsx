@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { CARD_BACK_IMAGE } from "@/lib/tarot-data";
 import type { TarotCardData } from "@/lib/tarot-data";
+import { useTranslation } from "react-i18next";
 
 interface TarotCardProps {
   card?: TarotCardData;
@@ -21,6 +22,9 @@ export function TarotCard({
   className,
   size = "md" 
 }: TarotCardProps) {
+  const { i18n, t } = useTranslation();
+  const lang = i18n.language === "zh-Hant" ? "zh" : "en";
+  
   const sizeClasses = {
     sm: "w-24 h-40",
     md: "w-48 h-80",
@@ -62,16 +66,16 @@ export function TarotCard({
             <div className="relative w-full h-full">
               <img 
                 src={card.image} 
-                alt={card.name} 
+                alt={card.name[lang]} 
                 className="w-full h-full object-cover"
               />
               <div className="absolute bottom-0 w-full bg-gradient-to-t from-black/80 to-transparent p-4 pt-12 text-center">
                 <h3 className="text-white font-serif font-bold text-lg drop-shadow-md">
-                  {card.name_cn}
+                  {card.name[lang]}
                 </h3>
                 {isReversed && (
                   <span className="text-destructive font-medium text-xs uppercase tracking-widest drop-shadow-sm">
-                    逆位
+                    {t("common.reversed")}
                   </span>
                 )}
               </div>

@@ -2,6 +2,7 @@ import type { TarotCardData } from "@/lib/tarot-data";
 import { cn } from "@/lib/utils";
 import { TarotCard } from "./TarotCard";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 interface ReadingResultProps {
   cards: Array<{
@@ -13,6 +14,9 @@ interface ReadingResultProps {
 }
 
 export function ReadingResult({ cards, onReset }: ReadingResultProps) {
+  const { i18n, t } = useTranslation();
+  const lang = i18n.language === "zh-Hant" ? "zh" : "en";
+
   return (
     <div className="w-full max-w-4xl mx-auto space-y-12 animate-in fade-in zoom-in duration-500">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-items-center">
@@ -38,17 +42,17 @@ export function ReadingResult({ cards, onReset }: ReadingResultProps) {
             
             <div className="text-center max-w-xs space-y-2">
               <h3 className="text-xl font-bold font-serif text-foreground">
-                {card.data.name_cn} {card.isReversed && "(逆位)"}
+                {card.data.name[lang]} {card.isReversed && `(${t("common.reversed")})`}
               </h3>
               <div className="flex flex-wrap justify-center gap-2">
-                {card.data.keywords.slice(0, 3).map(k => (
+                {card.data.keywords[lang].slice(0, 3).map(k => (
                   <span key={k} className="text-xs px-2 py-1 rounded-full bg-secondary text-secondary-foreground border border-secondary-foreground/20">
                     {k}
                   </span>
                 ))}
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed mt-2">
-                {card.isReversed ? card.data.meaning_reversed : card.data.meaning_upright}
+                {card.isReversed ? card.data.meanings[lang].reversed : card.data.meanings[lang].upright}
               </p>
             </div>
           </motion.div>
@@ -56,16 +60,16 @@ export function ReadingResult({ cards, onReset }: ReadingResultProps) {
       </div>
 
       <div className="bg-card/50 backdrop-blur border border-primary/20 rounded-2xl p-8 text-center space-y-6 max-w-2xl mx-auto">
-        <h3 className="text-2xl font-serif text-primary">AI 深度解读</h3>
+        <h3 className="text-2xl font-serif text-primary">{t("reading.ai_title")}</h3>
         <p className="text-foreground/80 leading-loose">
-          {generateMockAIReading(cards)}
+          {generateMockAIReading(cards, lang, t)}
         </p>
         
         <button 
           onClick={onReset}
           className="mt-8 px-8 py-3 bg-primary text-primary-foreground font-bold rounded-full hover:bg-primary/90 transition-all shadow-lg hover:shadow-primary/30"
         >
-          开始新的占卜
+          {t("reading.new_reading")}
         </button>
       </div>
     </div>
@@ -73,9 +77,16 @@ export function ReadingResult({ cards, onReset }: ReadingResultProps) {
 }
 
 // Simple mock interpretation generator (MVP)
-function generateMockAIReading(cards: Array<{data: TarotCardData, isReversed: boolean, position: string}>) {
-  const themes = cards.map(c => c.isReversed ? c.data.meaning_reversed : c.data.meaning_upright);
+function generateMockAIReading(
+  cards: Array<{data: TarotCardData, isReversed: boolean, position: string}>, 
+  lang: "en" | "zh",
+  t: any
+) {
+  const themes = cards.map(c => c.isReversed ? c.data.meanings[lang].reversed : c.data.meanings[lang].upright);
   const coreMessage = themes.join(" ");
   
-  return `根据牌阵显示，${cards[0].data.name_cn}揭示了这一问题的核心能量。${coreMessage} 建议你保持觉察，聆听内心的指引。`;
+  return t("reading.ai_mock_content", {
+    cardName: cards[0].data.name[lang],
+    themes: coreMessage
+  });
 }
