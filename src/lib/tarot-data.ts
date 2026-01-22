@@ -1,258 +1,557 @@
 export interface TarotCardData {
   id: string;
-  name: string;
-  name_cn: string;
   image: string;
-  keywords: string[];
-  meaning_upright: string;
-  meaning_reversed: string;
   element?: string;
   archetype?: string;
+  name: {
+    en: string;
+    zh: string; // Traditional Chinese
+  };
+  keywords: {
+    en: string[];
+    zh: string[];
+  };
+  meanings: {
+    en: {
+      upright: string;
+      reversed: string;
+    };
+    zh: {
+      upright: string;
+      reversed: string;
+    };
+  };
 }
+
+export const CARD_BACK_IMAGE = new URL("@/assets/card_back.jpeg", import.meta.url).href;
 
 export const TAROT_DECK: TarotCardData[] = [
   {
     id: "fool",
-    name: "The Fool",
-    name_cn: "愚人",
     image: new URL("@/assets/fool_card.jpeg", import.meta.url).href,
-    keywords: ["开始", "自由", "天真", "冒险", "潜力"],
-    meaning_upright: "新的开始，自由的灵魂，天真与纯洁。你正站在悬崖边缘，准备踏上一段未知的旅程。相信直觉，拥抱无限可能。",
-    meaning_reversed: "鲁莽，轻率，风险。小心不要过于冲动，忽视了眼前的危险。你的天真可能会被利用。",
     element: "Air",
-    archetype: "The Wanderer"
+    archetype: "The Wanderer",
+    name: {
+      en: "The Fool",
+      zh: "愚人",
+    },
+    keywords: {
+      en: ["Beginnings", "Freedom", "Innocence", "Risk", "Potential"],
+      zh: ["開始", "自由", "天真", "冒險", "潛力"],
+    },
+    meanings: {
+      en: {
+        upright: "New beginnings, free spirit, innocence. You are standing at the edge of a cliff, ready to embark on an unknown journey. Trust your intuition and embrace infinite possibilities.",
+        reversed: "Recklessness, risk-taking, naivety. Be careful not to be too impulsive or ignore immediate dangers. Your innocence might be taken advantage of.",
+      },
+      zh: {
+        upright: "新的開始，自由的靈魂，天真與純潔。你正站在懸崖邊緣，準備踏上一段未知的旅程。相信直覺，擁抱無限可能。",
+        reversed: "魯莽，輕率，風險。小心不要過於衝動，忽視了眼前的危險。你的天真可能會被利用。",
+      },
+    },
   },
   {
     id: "magician",
-    name: "The Magician",
-    name_cn: "魔术师",
     image: new URL("@/assets/magician_card.jpeg", import.meta.url).href,
-    keywords: ["创造力", "能力", "专注", "显化", "资源"],
-    meaning_upright: "你拥有实现目标所需的一切资源。现在的关键是专注意志，将想法转化为现实。创造力与行动力的完美结合。",
-    meaning_reversed: "才华被埋没，缺乏计划，操纵。小心不要被虚幻的表象迷惑，或者滥用你的能力去欺骗他人。",
     element: "Air",
-    archetype: "The Creator"
+    archetype: "The Creator",
+    name: {
+      en: "The Magician",
+      zh: "魔術師",
+    },
+    keywords: {
+      en: ["Manifestation", "Resourcefulness", "Power", "Inspired Action"],
+      zh: ["創造力", "能力", "專注", "顯化", "資源"],
+    },
+    meanings: {
+      en: {
+        upright: "You have all the resources you need to achieve your goals. The key now is to focus your will and turn ideas into reality. A perfect blend of creativity and action.",
+        reversed: "Untapped talent, manipulation, poor planning. Be careful not to be misled by illusions or use your abilities to deceive others.",
+      },
+      zh: {
+        upright: "你擁有實現目標所需的一切資源。現在的關鍵是專注意志，將想法轉化為現實。創造力與行動力的完美結合。",
+        reversed: "才華被埋沒，缺乏計劃，操縱。小心不要被虛幻的表象迷惑，或者濫用你的能力去欺騙他人。",
+      },
+    },
   },
   {
     id: "priestess",
-    name: "The High Priestess",
-    name_cn: "女祭司",
     image: new URL("@/assets/priestess_card.jpeg", import.meta.url).href,
-    keywords: ["直觉", "神秘", "潜意识", "内在智慧", "静默"],
-    meaning_upright: "倾听内心的声音，信任你的直觉。现在的答案不在外在世界，而在你的潜意识深处。保持静默与观察。",
-    meaning_reversed: "忽视直觉，肤浅，秘密被揭露。你可能与内在智慧断连，或者被表面的情绪所困扰。",
     element: "Water",
-    archetype: "The Mystic"
+    archetype: "The Mystic",
+    name: {
+      en: "The High Priestess",
+      zh: "女祭司",
+    },
+    keywords: {
+      en: ["Intuition", "Mystery", "Subconscious", "Inner Voice"],
+      zh: ["直覺", "神秘", "潛意識", "內在智慧", "靜默"],
+    },
+    meanings: {
+      en: {
+        upright: "Listen to your inner voice and trust your intuition. The answers you seek are not in the external world, but deep within your subconscious. Maintain silence and observation.",
+        reversed: "Ignored intuition, superficiality, secrets revealed. You may be disconnected from your inner wisdom or troubled by surface emotions.",
+      },
+      zh: {
+        upright: "傾聽內心的聲音，信任你的直覺。現在的答案不在外在世界，而在你的潛意識深處。保持靜默與觀察。",
+        reversed: "忽視直覺，膚淺，秘密被揭露。你可能與內在智慧斷連，或者被表面的情緒所困擾。",
+      },
+    },
   },
   {
     id: "empress",
-    name: "The Empress",
-    name_cn: "皇后",
     image: new URL("@/assets/empress_card.jpeg", import.meta.url).href,
-    keywords: ["丰盛", "母性", "自然", "感官享受", "创造"],
-    meaning_upright: "富足与丰收的时刻。拥抱生活中的美与爱，培养创造力。这是一个适合孕育新计划或享受成果的阶段。",
-    meaning_reversed: "依赖，创造力受阻，过度放纵。小心不要陷入情感勒索或物质享乐的陷阱。",
     element: "Earth",
-    archetype: "The Mother"
+    archetype: "The Mother",
+    name: {
+      en: "The Empress",
+      zh: "皇后",
+    },
+    keywords: {
+      en: ["Abundance", "Nurturing", "Nature", "Pleasure"],
+      zh: ["豐盛", "母性", "自然", "感官享受", "創造"],
+    },
+    meanings: {
+      en: {
+        upright: "A time of abundance and harvest. Embrace the beauty and love in life, cultivate creativity. This is a phase suitable for nurturing new plans or enjoying results.",
+        reversed: "Dependence, blocked creativity, excess. Be careful not to fall into the trap of emotional blackmail or material indulgence.",
+      },
+      zh: {
+        upright: "富足與豐收的時刻。擁抱生活中的美與愛，培養創造力。這是一個適合孕育新計劃或享受成果的階段。",
+        reversed: "依賴，創造力受阻，過度放縱。小心不要陷入情感勒索或物質享樂的陷阱。",
+      },
+    },
   },
   {
     id: "emperor",
-    name: "The Emperor",
-    name_cn: "皇帝",
     image: new URL("@/assets/emperor_card.jpeg", import.meta.url).href,
-    keywords: ["权威", "结构", "控制", "父亲形象", "稳定"],
-    meaning_upright: "建立秩序与规则。现在需要逻辑与纪律来掌控局面。展现领导力，为生活构建坚实的基础。",
-    meaning_reversed: "暴政，僵化，缺乏自律。过于强势可能会招致反抗，或者缺乏结构导致混乱。",
     element: "Fire",
-    archetype: "The Father"
+    archetype: "The Father",
+    name: {
+      en: "The Emperor",
+      zh: "皇帝",
+    },
+    keywords: {
+      en: ["Authority", "Structure", "Control", "Fatherhood"],
+      zh: ["權威", "結構", "控制", "父親形象", "穩定"],
+    },
+    meanings: {
+      en: {
+        upright: "Establish order and rules. Logic and discipline are needed to control the situation. Show leadership and build a solid foundation for life.",
+        reversed: "Tyranny, rigidity, lack of discipline. Being too domineering may invite rebellion, or lack of structure may lead to chaos.",
+      },
+      zh: {
+        upright: "建立秩序與規則。現在需要邏輯與紀律來掌控局面。展現領導力，為生活構建堅實的基礎。",
+        reversed: "暴政，僵化，缺乏自律。過於強勢可能會招致反抗，或者缺乏結構導致混亂。",
+      },
+    },
   },
   {
     id: "hierophant",
-    name: "The Hierophant",
-    name_cn: "教皇",
     image: new URL("@/assets/hierophant_card.jpeg", import.meta.url).href,
-    keywords: ["传统", "信仰", "教育", "精神指引", "从众"],
-    meaning_upright: "遵循传统与既定规则。寻求精神导师的指引或加入某个团体。现在不是打破常规的时候，而是学习与传承。",
-    meaning_reversed: "挑战权威，非传统，个人信仰。你可能感到受束缚，渴望寻找属于自己的精神道路。",
     element: "Earth",
-    archetype: "The Teacher"
+    archetype: "The Teacher",
+    name: {
+      en: "The Hierophant",
+      zh: "教皇",
+    },
+    keywords: {
+      en: ["Tradition", "Belief", "Education", "Spiritual Guidance"],
+      zh: ["傳統", "信仰", "教育", "精神指引", "從眾"],
+    },
+    meanings: {
+      en: {
+        upright: "Follow tradition and established rules. Seek guidance from a spiritual mentor or join a group. Now is not the time to break conventions, but to learn and inherit.",
+        reversed: "Challenging authority, unconventionality, personal beliefs. You may feel restricted and desire to find your own spiritual path.",
+      },
+      zh: {
+        upright: "遵循傳統與既定規則。尋求精神導師的指引或加入某個團體。現在不是打破常規的時候，而是學習與傳承。",
+        reversed: "挑戰權威，非傳統，個人信仰。你可能感到受束縛，渴望尋找屬於自己的精神道路。",
+      },
+    },
   },
   {
     id: "lovers",
-    name: "The Lovers",
-    name_cn: "恋人",
     image: new URL("@/assets/lovers_card.jpeg", import.meta.url).href,
-    keywords: ["爱", "和谐", "选择", "价值观", "结合"],
-    meaning_upright: "深层的情感联结与和谐。面临重要的人生抉择，需要跟随内心的价值观。不仅仅是爱情，更是自我的整合。",
-    meaning_reversed: "不和谐，分离，错误的决定。可能面临关系破裂或内心冲突，需要重新审视自己的选择。",
     element: "Air",
-    archetype: "The Partner"
+    archetype: "The Partner",
+    name: {
+      en: "The Lovers",
+      zh: "戀人",
+    },
+    keywords: {
+      en: ["Love", "Harmony", "Choices", "Values"],
+      zh: ["愛", "和諧", "選擇", "價值觀", "結合"],
+    },
+    meanings: {
+      en: {
+        upright: "Deep emotional connection and harmony. Facing important life choices, you need to follow your inner values. It's not just about romance, but self-integration.",
+        reversed: "Disharmony, separation, bad choices. You may face relationship breakdown or inner conflict, needing to re-examine your choices.",
+      },
+      zh: {
+        upright: "深層的情感聯結與和諧。面臨重要的人生抉擇，需要跟隨內心的價值觀。不僅僅是愛情，更是自我的整合。",
+        reversed: "不和諧，分離，錯誤的決定。可能面臨關係破裂或內心衝突，需要重新審視自己的選擇。",
+      },
+    },
   },
   {
     id: "chariot",
-    name: "The Chariot",
-    name_cn: "战车",
     image: new URL("@/assets/chariot_card.jpeg", import.meta.url).href,
-    keywords: ["意志力", "胜利", "决心", "行动", "控制"],
-    meaning_upright: "通过意志力与自律克服障碍。确立目标，勇往直前。胜利属于那些敢于掌控命运的人。",
-    meaning_reversed: "失控，攻击性，失败。可能遭遇挫折或失去方向，需要学会何时放手，何时坚持。",
     element: "Water",
-    archetype: "The Warrior"
+    archetype: "The Warrior",
+    name: {
+      en: "The Chariot",
+      zh: "戰車",
+    },
+    keywords: {
+      en: ["Willpower", "Victory", "Determination", "Action"],
+      zh: ["意志力", "勝利", "決心", "行動", "控制"],
+    },
+    meanings: {
+      en: {
+        upright: "Overcoming obstacles through willpower and discipline. Set goals and move forward courageously. Victory belongs to those who dare to control their destiny.",
+        reversed: "Loss of control, aggression, defeat. You may face setbacks or lose direction, needing to learn when to let go and when to persist.",
+      },
+      zh: {
+        upright: "通過意志力與自律克服障礙。確立目標，勇往直前。勝利屬於那些敢於掌控命運的人。",
+        reversed: "失控，攻擊性，失敗。可能遭遇挫折或失去方向，需要學會何時放手，何時堅持。",
+      },
+    },
   },
   {
     id: "strength",
-    name: "Strength",
-    name_cn: "力量",
     image: new URL("@/assets/strength_card.jpeg", import.meta.url).href,
-    keywords: ["勇气", "耐心", "同情", "内在力量", "控制"],
-    meaning_upright: "以柔克刚的智慧。真正的力量来自内心的坚定与包容，而非蛮力。面对困难时保持优雅与耐心。",
-    meaning_reversed: "软弱，自我怀疑，原始本能。可能被恐惧或欲望控制，需要找回内心的平衡。",
     element: "Fire",
-    archetype: "The Hero"
+    archetype: "The Hero",
+    name: {
+      en: "Strength",
+      zh: "力量",
+    },
+    keywords: {
+      en: ["Courage", "Patience", "Compassion", "Inner Strength"],
+      zh: ["勇氣", "耐心", "同情", "內在力量", "控制"],
+    },
+    meanings: {
+      en: {
+        upright: "Wisdom of gentleness overcoming strength. True power comes from inner firmness and inclusivity, not brute force. Maintain elegance and patience in difficulties.",
+        reversed: "Weakness, self-doubt, raw instincts. You may be controlled by fear or desire, needing to regain inner balance.",
+      },
+      zh: {
+        upright: "以柔克剛的智慧。真正的力量來自內心的堅定與包容，而非蠻力。面對困難時保持優雅與耐心。",
+        reversed: "軟弱，自我懷疑，原始本能。可能被恐懼或慾望控制，需要找回內心的平衡。",
+      },
+    },
   },
   {
     id: "hermit",
-    name: "The Hermit",
-    name_cn: "隐士",
     image: new URL("@/assets/hermit_card.jpeg", import.meta.url).href,
-    keywords: ["内省", "孤独", "指引", "探索", "智慧"],
-    meaning_upright: "向内探索的时刻。暂时从喧嚣中抽离，寻找内心的答案。孤独是智慧的摇篮，不要害怕独处。",
-    meaning_reversed: "孤立，寂寞，拒绝沟通。可能陷入过度封闭或逃避现实，需要适度与外界连接。",
     element: "Earth",
-    archetype: "The Sage"
+    archetype: "The Sage",
+    name: {
+      en: "The Hermit",
+      zh: "隱士",
+    },
+    keywords: {
+      en: ["Introspection", "Solitude", "Guidance", "Wisdom"],
+      zh: ["內省", "孤獨", "指引", "探索", "智慧"],
+    },
+    meanings: {
+      en: {
+        upright: "A time for introspection. Withdraw from the noise temporarily to find inner answers. Solitude is the cradle of wisdom, don't fear being alone.",
+        reversed: "Isolation, loneliness, withdrawal. You may be overly closed off or escaping reality, needing to connect with the outside world moderately.",
+      },
+      zh: {
+        upright: "向內探索的時刻。暫時從喧囂中抽離，尋找內心的答案。孤獨是智慧的搖籃，不要害怕獨處。",
+        reversed: "孤立，寂寞，拒絕溝通。可能陷入過度封閉或逃避現實，需要適度與外界連接。",
+      },
+    },
   },
   {
     id: "wheel",
-    name: "Wheel of Fortune",
-    name_cn: "命运之轮",
     image: new URL("@/assets/wheel_card.jpeg", import.meta.url).href,
-    keywords: ["改变", "循环", "命运", "转折点", "运气"],
-    meaning_upright: "命运的转折点到来。顺应变化的潮流，抓住机遇。生活是起伏的循环，现在是上升期。",
-    meaning_reversed: "厄运，抗拒改变，失控。可能遭遇意外的挫折，提醒你世事无常，学会适应。",
     element: "Fire",
-    archetype: "Destiny"
+    archetype: "Destiny",
+    name: {
+      en: "Wheel of Fortune",
+      zh: "命運之輪",
+    },
+    keywords: {
+      en: ["Change", "Cycles", "Destiny", "Turning Point"],
+      zh: ["改變", "循環", "命運", "轉折點", "運氣"],
+    },
+    meanings: {
+      en: {
+        upright: "A turning point in destiny has arrived. Go with the flow of change and seize opportunities. Life is a cycle of ups and downs, now is the upswing.",
+        reversed: "Bad luck, resistance to change, loss of control. You may encounter unexpected setbacks, reminding you that things are impermanent, learn to adapt.",
+      },
+      zh: {
+        upright: "命運的轉折點到來。順應變化的潮流，抓住機遇。生活是起伏的循環，現在是上升期。",
+        reversed: "厄運，抗拒改變，失控。可能遭遇意外的挫折，提醒你世事無常，學會適應。",
+      },
+    },
   },
   {
     id: "justice",
-    name: "Justice",
-    name_cn: "正义",
     image: new URL("@/assets/justice_card.jpeg", import.meta.url).href,
-    keywords: ["公正", "真理", "因果", "法律", "平衡"],
-    meaning_upright: "种瓜得瓜，种豆得豆。追求公平与真相，理性地做出判断。法律事务或契约将得到公正的裁决。",
-    meaning_reversed: "不公，偏见，逃避责任。可能遭遇不公正的待遇，或者自己在逃避应承担的后果。",
     element: "Air",
-    archetype: "The Judge"
+    archetype: "The Judge",
+    name: {
+      en: "Justice",
+      zh: "正義",
+    },
+    keywords: {
+      en: ["Fairness", "Truth", "Cause and Effect", "Law"],
+      zh: ["公正", "真理", "因果", "法律", "平衡"],
+    },
+    meanings: {
+      en: {
+        upright: "You reap what you sow. Pursue fairness and truth, make rational judgments. Legal matters or contracts will be judged fairly.",
+        reversed: "Unfairness, prejudice, avoiding responsibility. You may encounter unfair treatment or be evading the consequences you should bear.",
+      },
+      zh: {
+        upright: "種瓜得瓜，種豆得豆。追求公平與真相，理性地做出判斷。法律事務或契約將得到公正的裁決。",
+        reversed: "不公，偏見，逃避責任。可能遭遇不公正的待遇，或者自己在逃避應承擔的後果。",
+      },
+    },
   },
   {
     id: "hanged_man",
-    name: "The Hanged Man",
-    name_cn: "倒吊人",
     image: new URL("@/assets/hanged_man_card.jpeg", import.meta.url).href,
-    keywords: ["牺牲", "等待", "新视角", "放下", "停滞"],
-    meaning_upright: "换个角度看世界。有时退步即是进步，放下执念才能获得智慧。利用这段停滞期进行深层的反思。",
-    meaning_reversed: "无谓的牺牲，拖延，顽固。可能陷入僵局而不自知，或者拒绝改变现状。",
     element: "Water",
-    archetype: "The Martyr"
+    archetype: "The Martyr",
+    name: {
+      en: "The Hanged Man",
+      zh: "倒吊人",
+    },
+    keywords: {
+      en: ["Surrender", "New Perspective", "Waiting", "Sacrifice"],
+      zh: ["犧牲", "等待", "新視角", "放下", "停滯"],
+    },
+    meanings: {
+      en: {
+        upright: "Look at the world from a different angle. Sometimes stepping back is moving forward, letting go of attachments leads to wisdom. Use this pause for deep reflection.",
+        reversed: "Needless sacrifice, stalling, stubbornness. You may be stuck in a deadlock without knowing it, or refusing to change the status quo.",
+      },
+      zh: {
+        upright: "換個角度看世界。有時退步即是進步，放下執念才能獲得智慧。利用這段停滯期進行深層的反思。",
+        reversed: "無謂的犧牲，拖延，頑固。可能陷入僵局而不自知，或者拒絕改變現狀。",
+      },
+    },
   },
   {
     id: "death",
-    name: "Death",
-    name_cn: "死神",
     image: new URL("@/assets/death_card.jpeg", import.meta.url).href,
-    keywords: ["结束", "转化", "重生", "改变", "过渡"],
-    meaning_upright: "彻底的结束与新的开始。旧的模式必须死去，新的生命才能诞生。不要抗拒改变，拥抱转化的过程。",
-    meaning_reversed: "抗拒改变，停滞，腐朽。执着于过去只会带来痛苦，学会放手才能解脱。",
     element: "Water",
-    archetype: "Transformation"
+    archetype: "Transformation",
+    name: {
+      en: "Death",
+      zh: "死神",
+    },
+    keywords: {
+      en: ["Endings", "Transformation", "Transition", "Change"],
+      zh: ["結束", "轉化", "重生", "改變", "過渡"],
+    },
+    meanings: {
+      en: {
+        upright: "A complete end and a new beginning. Old patterns must die for new life to be born. Do not resist change, embrace the process of transformation.",
+        reversed: "Resistance to change, stagnation, decay. Clinging to the past will only bring pain, learn to let go to be free.",
+      },
+      zh: {
+        upright: "徹底的結束與新的開始。舊的模式必須死去，新的生命才能誕生。不要抗拒改變，擁抱轉化的過程。",
+        reversed: "抗拒改變，停滯，腐朽。執著於過去只會帶來痛苦，學會放手才能解脫。",
+      },
+    },
   },
   {
     id: "temperance",
-    name: "Temperance",
-    name_cn: "节制",
     image: new URL("@/assets/temperance_card.jpeg", import.meta.url).href,
-    keywords: ["平衡", "调和", "耐心", "目的", "适度"],
-    meaning_upright: "寻找中庸之道。将对立的力量融合，创造和谐。耐心与适度是当前的关键，不要急于求成。",
-    meaning_reversed: "失衡，极端，缺乏耐心。可能在某些方面过度消耗，需要重新调整生活的节奏。",
     element: "Fire",
-    archetype: "The Alchemist"
+    archetype: "The Alchemist",
+    name: {
+      en: "Temperance",
+      zh: "節制",
+    },
+    keywords: {
+      en: ["Balance", "Moderation", "Patience", "Purpose"],
+      zh: ["平衡", "調和", "耐心", "目的", "適度"],
+    },
+    meanings: {
+      en: {
+        upright: "Find the middle way. Blend opposing forces to create harmony. Patience and moderation are key now, do not rush for success.",
+        reversed: "Imbalance, excess, lack of patience. You may be over-consuming in some aspects and need to readjust the rhythm of life.",
+      },
+      zh: {
+        upright: "尋找中庸之道。將對立的力量融合，創造和諧。耐心與適度是當前的關鍵，不要急於求成。",
+        reversed: "失衡，極端，缺乏耐心。可能在某些方面過度消耗，需要重新調整生活的節奏。",
+      },
+    },
   },
   {
     id: "devil",
-    name: "The Devil",
-    name_cn: "恶魔",
     image: new URL("@/assets/devil_card.jpeg", import.meta.url).href,
-    keywords: ["束缚", "物质主义", "成瘾", "欲望", "阴影"],
-    meaning_upright: "面对内心的阴影与束缚。可能被物质欲望或不良习惯所控制。意识到枷锁的存在是解脱的第一步。",
-    meaning_reversed: "解脱，打破束缚，觉醒。开始摆脱负面的影响，重获自由与力量。",
     element: "Earth",
-    archetype: "The Shadow"
+    archetype: "The Shadow",
+    name: {
+      en: "The Devil",
+      zh: "惡魔",
+    },
+    keywords: {
+      en: ["Bondage", "Materialism", "Addiction", "Shadow Self"],
+      zh: ["束縛", "物質主義", "成癮", "慾望", "陰影"],
+    },
+    meanings: {
+      en: {
+        upright: "Face your inner shadows and bonds. You may be controlled by material desires or bad habits. Realizing the existence of chains is the first step to liberation.",
+        reversed: "Release, breaking chains, awakening. Starting to get rid of negative influences and regaining freedom and power.",
+      },
+      zh: {
+        upright: "面對內心的陰影與束縛。可能被物質慾望或不良習慣所控制。意識到枷鎖的存在是解脫的第一步。",
+        reversed: "解脫，打破束縛，覺醒。開始擺脫負面的影響，重獲自由與力量。",
+      },
+    },
   },
   {
     id: "tower",
-    name: "The Tower",
-    name_cn: "高塔",
     image: new URL("@/assets/tower_card.jpeg", import.meta.url).href,
-    keywords: ["突变", "混乱", "启示", "觉醒", "灾难"],
-    meaning_upright: "突如其来的巨变。虚假的基础崩塌，虽然痛苦，但这是觉醒的契机。接受混乱，重建更真实的自我。",
-    meaning_reversed: "勉强维持，逃避灾难，恐惧。可能在抗拒不可避免的改变，只会延长痛苦的过程。",
     element: "Fire",
-    archetype: "Destruction"
+    archetype: "Destruction",
+    name: {
+      en: "The Tower",
+      zh: "高塔",
+    },
+    keywords: {
+      en: ["Sudden Change", "Chaos", "Revelation", "Awakening"],
+      zh: ["突變", "混亂", "啟示", "覺醒", "災難"],
+    },
+    meanings: {
+      en: {
+        upright: "Sudden upheaval. False foundations collapse, though painful, it is an opportunity for awakening. Accept chaos and rebuild a truer self.",
+        reversed: "Averting disaster, fear of change. You may be resisting inevitable change, which only prolongs the painful process.",
+      },
+      zh: {
+        upright: "突如其來的巨變。虛假的基礎崩塌，雖然痛苦，但這是覺醒的契機。接受混亂，重建更真實的自我。",
+        reversed: "勉強維持，逃避災難，恐懼。可能在抗拒不可避免的改變，只會延長痛苦的過程。",
+      },
+    },
   },
   {
     id: "star",
-    name: "The Star",
-    name_cn: "星星",
     image: new URL("@/assets/star_card.jpeg", import.meta.url).href,
-    keywords: ["希望", "灵感", "平静", "疗愈", "指引"],
-    meaning_upright: "风暴过后的宁静。充满希望与灵感，身心得到疗愈。跟随这颗指引之星，你的愿望将会实现。",
-    meaning_reversed: "绝望，缺乏信心，断连。可能感到迷茫或失去动力，需要重新找回内心的光芒。",
     element: "Air",
-    archetype: "Hope"
+    archetype: "Hope",
+    name: {
+      en: "The Star",
+      zh: "星星",
+    },
+    keywords: {
+      en: ["Hope", "Inspiration", "Serenity", "Healing"],
+      zh: ["希望", "靈感", "平靜", "療愈", "指引"],
+    },
+    meanings: {
+      en: {
+        upright: "Calm after the storm. Full of hope and inspiration, body and mind healed. Follow this guiding star, your wishes will come true.",
+        reversed: "Despair, lack of faith, disconnection. You may feel lost or unmotivated, needing to rediscover your inner light.",
+      },
+      zh: {
+        upright: "風暴過後的寧靜。充滿希望與靈感，身心得到療愈。跟隨這顆指引之星，你的願望將會實現。",
+        reversed: "絕望，缺乏信心，斷連。可能感到迷茫或失去動力，需要重新找回內心的光芒。",
+      },
+    },
   },
   {
     id: "moon",
-    name: "The Moon",
-    name_cn: "月亮",
     image: new URL("@/assets/moon_card.jpeg", import.meta.url).href,
-    keywords: ["幻觉", "恐惧", "潜意识", "直觉", "不安"],
-    meaning_upright: "潜意识的涌动与不安。事物并非表面看起来那样，小心幻觉与欺骗。信任直觉，穿越迷雾。",
-    meaning_reversed: "清晰，揭露真相，恐惧消散。迷雾逐渐散去，真相浮出水面，内心重获平静。",
     element: "Water",
-    archetype: "The Dreamer"
+    archetype: "The Dreamer",
+    name: {
+      en: "The Moon",
+      zh: "月亮",
+    },
+    keywords: {
+      en: ["Illusion", "Fear", "Subconscious", "Intuition"],
+      zh: ["幻覺", "恐懼", "潛意識", "直覺", "不安"],
+    },
+    meanings: {
+      en: {
+        upright: "Subconscious stirrings and unease. Things are not what they seem, beware of illusions and deception. Trust your intuition to navigate the fog.",
+        reversed: "Clarity, revealing truth, fear dispelled. The fog is lifting, the truth is emerging, and inner peace is regained.",
+      },
+      zh: {
+        upright: "潛意識的湧動與不安。事物並非表面看起來那樣，小心幻覺與欺騙。信任直覺，穿越迷霧。",
+        reversed: "清晰，揭露真相，恐懼消散。迷霧逐漸散去，真相浮出水面，內心重獲平靜。",
+      },
+    },
   },
   {
     id: "sun",
-    name: "The Sun",
-    name_cn: "太阳",
     image: new URL("@/assets/sun_card.jpeg", import.meta.url).href,
-    keywords: ["快乐", "成功", "活力", "清晰", "自信"],
-    meaning_upright: "纯粹的快乐与成功。阴霾散去，阳光普照。充满活力与自信，享受生命中的美好时刻。",
-    meaning_reversed: "悲伤，过度乐观，暂时的阴云。可能感到短暂的失落，但太阳总会再次升起。",
     element: "Fire",
-    archetype: "The Child"
+    archetype: "The Child",
+    name: {
+      en: "The Sun",
+      zh: "太陽",
+    },
+    keywords: {
+      en: ["Joy", "Success", "Vitality", "Confidence"],
+      zh: ["快樂", "成功", "活力", "清晰", "自信"],
+    },
+    meanings: {
+      en: {
+        upright: "Pure joy and success. The gloom lifts, the sun shines. Full of vitality and confidence, enjoy the beautiful moments in life.",
+        reversed: "Sadness, temporary cloud, overly optimistic. You may feel a brief loss, but the sun will rise again.",
+      },
+      zh: {
+        upright: "純粹的快樂與成功。陰霾散去，陽光普照。充滿活力與自信，享受生命中的美好時刻。",
+        reversed: "悲傷，過度樂觀，暫時的陰雲。可能感到短暫的失落，但太陽總會再次升起。",
+      },
+    },
   },
   {
     id: "judgement",
-    name: "Judgement",
-    name_cn: "审判",
     image: new URL("@/assets/judgement_card.jpeg", import.meta.url).href,
-    keywords: ["觉醒", "重生", "决断", "感召", "宽恕"],
-    meaning_upright: "灵魂的觉醒与重生。听到内心的召唤，做出重要的人生决断。放下过去，迎接新的生命阶段。",
-    meaning_reversed: "自我怀疑，拒绝召唤，后悔。可能在逃避成长的机会，或者沉溺于过去的错误。",
     element: "Fire",
-    archetype: "Rebirth"
+    archetype: "Rebirth",
+    name: {
+      en: "Judgement",
+      zh: "審判",
+    },
+    keywords: {
+      en: ["Awakening", "Rebirth", "Inner Call", "Absolution"],
+      zh: ["覺醒", "重生", "決斷", "感召", "寬恕"],
+    },
+    meanings: {
+      en: {
+        upright: "Soul awakening and rebirth. Hearing the inner call, making important life decisions. Let go of the past and welcome a new phase of life.",
+        reversed: "Self-doubt, refusal of call, regret. You may be avoiding opportunities for growth or dwelling on past mistakes.",
+      },
+      zh: {
+        upright: "靈魂的覺醒與重生。聽到內心的召喚，做出重要的人生決斷。放下過去，迎接新的生命階段。",
+        reversed: "自我懷疑，拒絕召喚，後悔。可能在逃避成長的機會，或者沉溺於過去的錯誤。",
+      },
+    },
   },
   {
     id: "world",
-    name: "The World",
-    name_cn: "世界",
     image: new URL("@/assets/world_card.jpeg", import.meta.url).href,
-    keywords: ["圆满", "成就", "整合", "旅行", "完成"],
-    meaning_upright: "旅程的圆满结束。达成目标，获得成就与整合。这是完美的时刻，也是新循环的开始。",
-    meaning_reversed: "未完成，停滞，缺乏闭环。可能还差最后一步，或者感到空虚，需要寻找缺失的拼图。",
     element: "Earth",
-    archetype: "Completion"
-  }
+    archetype: "Completion",
+    name: {
+      en: "The World",
+      zh: "世界",
+    },
+    keywords: {
+      en: ["Completion", "Integration", "Accomplishment", "Travel"],
+      zh: ["圓滿", "成就", "整合", "旅行", "完成"],
+    },
+    meanings: {
+      en: {
+        upright: "Successful conclusion of a journey. Goals achieved, accomplishment and integration. This is a perfect moment and the beginning of a new cycle.",
+        reversed: "Incomplete, lack of closure, stagnation. You may be one step away, or feeling empty, needing to find the missing piece.",
+      },
+      zh: {
+        upright: "旅程的圓滿結束。達成目標，獲得成就與整合。這是完美的時刻，也是新循環的開始。",
+        reversed: "未完成，停滯，缺乏閉環。可能還差這一步，或者感到空虛，需要尋找缺失的拼圖。",
+      },
+    },
+  },
 ];
-
-export const CARD_BACK_IMAGE = new URL("@/assets/card_back.jpeg", import.meta.url).href;
