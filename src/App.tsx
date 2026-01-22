@@ -4,6 +4,7 @@ import { Router, Route, Switch } from "wouter";
 import { useHashLocation } from "wouter/use-hash-location";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import { ThemeProvider } from "@/contexts/ThemeContext";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import Home from "@/pages/Home";
 import YesNoTarot from "@/pages/YesNoTarot";
 import ThreeCardSpread from "@/pages/ThreeCardSpread";
@@ -31,6 +32,9 @@ function App() {
       <ThemeProvider defaultTheme="dark">
         <TooltipProvider>
           <Toaster />
+          <div className="absolute top-4 right-4 z-50">
+            <LanguageSwitcher />
+          </div>
           <AppRouter />
         </TooltipProvider>
       </ThemeProvider>
