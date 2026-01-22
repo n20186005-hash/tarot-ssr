@@ -1,0 +1,68 @@
+{
+  "meta": {
+    "title": "AI Tarot Reading - Your Online Sanctuary",
+    "description": "Free online tarot reading with AI deep interpretation, daily guidance, and Yes/No quick answers. Explore love, career, and life guidance."
+  },
+  "common": {
+    "back_home": "Back to Home",
+    "coming_soon": "Coming Soon",
+    "start_reading": "Start Reading",
+    "loading": "Loading...",
+    "reversed": "Reversed",
+    "share": "Share",
+    "share_feature_coming": "Sharing feature is under development! Beautiful cards coming soon."
+  },
+  "home": {
+    "badge": "AI-Powered Soul Sanctuary",
+    "hero_title_1": "Insight into Destiny",
+    "hero_title_2": "Guide to Future",
+    "hero_desc": "Combining ancient tarot wisdom with modern AI deep interpretation to clear the fog and find your inner answers.",
+    "cta_daily": "Draw Daily Guidance",
+    "cta_yes_no": "Yes/No Quick Answer",
+    "features_title": "Explore Your Spread",
+    "features_desc": "Whether you need quick guidance or deep insight, we have the perfect reading for you.",
+    "daily_title": "Daily Guidance",
+    "daily_desc": "First light of guidance for the morning, starting your day with energy. Explore today's theme and advice.",
+    "yes_no_title": "Yes/No Oracle",
+    "yes_no_desc": "Hesitating? Have a specific question? Let tarot give you the most direct answer and advice.",
+    "three_card_title": "Three Card Spread",
+    "three_card_desc": "Classic timeline spread. Deeply analyze past influences, current situation, and future trends.",
+    "love_title": "Love Tarot",
+    "love_desc": "What are they thinking? Where is our relationship going? Explore hidden truths of the emotional world.",
+    "career_title": "Career Guide",
+    "career_desc": "Facing career choices? Looking for a breakthrough? Get strategic advice for your career development."
+  },
+  "yes_no": {
+    "title": "Yes/No Quick Oracle",
+    "subtitle": "Meditate on a specific question (e.g., 'Should I take this job?'), and let the tarot give you direct guidance.",
+    "draw_btn": "Draw Card",
+    "connecting": "Connecting to your energy...",
+    "answer": "Answer",
+    "ask_another": "Ask Another Question"
+  },
+  "three_card": {
+    "title": "Three Card Timeline Spread",
+    "subtitle": "One of the most classic spreads. Through the 'Past-Present-Future' timeline, it helps you understand the sequence of events and insight into potential trends.",
+    "start_btn": "Start Deep Reading",
+    "shuffling": "Shuffling, please focus...",
+    "past": "The Past",
+    "present": "The Present",
+    "future": "The Future"
+  },
+  "daily": {
+    "title": "Daily Guidance",
+    "subtitle_1": "What does the universe want to tell you today?",
+    "subtitle_2": "Draw a card as your spiritual totem for the day.",
+    "tap_hint": "Tap card back to draw",
+    "guidance_label": "Daily Guidance",
+    "advice_title": "Today's Advice",
+    "advice_content_upright": "Today, try to embody the energy of {{card}}. Keep an open mind and let this positive quality guide your actions.",
+    "advice_content_reversed": "Today, try to embody the energy of {{card}}. Be careful not to fall into negative emotional cycles, stay aware.",
+    "keywords_label": "Focus Keywords"
+  },
+  "reading": {
+    "ai_title": "AI Deep Interpretation",
+    "ai_mock_content": "According to the spread, {{cardName}} reveals the core energy of this issue. {{themes}} Suggest keeping aware and listening to inner guidance.",
+    "new_reading": "Start New Reading"
+  }
+}
