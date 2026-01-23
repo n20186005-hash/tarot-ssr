@@ -1,2 +1,15 @@
+# 全局匹配所有 JS 文件（包括 /dist/ 目录）
+/*.js
+  Content-Type: text/javascript; charset=utf-8
+
+# 匹配所有 CSS 文件（避免样式加载失败）
+/*.css
+  Content-Type: text/css; charset=utf-8
+
+# 兼容 /assets/ 目录的旧配置
 /assets/*.js
   Content-Type: application/javascript
+
+# 若有 Wasm 文件补充这行
+/*.wasm
+  Content-Type: application/wasm
