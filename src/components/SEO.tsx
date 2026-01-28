@@ -1,10 +1,6 @@
-// Fix Helmet type error by asserting it as any
-import { Helmet as HelmetOriginal } from "react-helmet-async";
+import { Helmet } from "react-helmet-async";
 import { useTranslation } from "react-i18next";
 import { useEffect, useState } from "react";
-
-// Force type assertion
-const Helmet = HelmetOriginal as any;
 
 interface SEOProps {
   title?: string;
