@@ -102,5 +102,23 @@
     "a2": "It is recommended to wait a while before asking the same question again to allow energies to shift.",
     "q3": "Is this free?",
     "a3": "Yes, our core readings are free to use."
+  },
+  "insights": {
+    "title": "Latest Insights & Tarot Wisdom",
+    "article_1_title": "The Psychology of Tarot: Jungian Archetypes",
+    "article_1_desc": "Explore how the collective unconscious manifests in tarot symbols and how AI interprets these ancient patterns.",
+    "article_2_title": "Case Study: Career Breakthroughs",
+    "article_2_desc": "Real stories of how users found clarity in career transitions using our AI Career Guide.",
+    "article_3_title": "2024 Tarot Trends: Digital Mysticism",
+    "article_3_desc": "Why more people are turning to digital divination for daily mindfulness and mental clarity."
+  },
+  "seo_guide": {
+    "title": "Comprehensive Guide to AI Tarot",
+    "intro_title": "Bridging Ancient Wisdom with Modern Tech",
+    "intro_text": "Tarot has been a tool for reflection for centuries. By integrating Large Language Models (LLM), we preserve the soulful archetypes while eliminating human error and bias. Our algorithm respects the traditional 'Hero's Journey' structure while adapting to modern context.",
+    "history_title": "A Brief History of Tarot",
+    "history_text": "Originating in 15th century Italy, tarot started as a card game but evolved into a powerful tool for divination in the late 18th century. The imagery is deeply rooted in Renaissance art, Christian mysticism, and Kabbalah.",
+    "accuracy_title": "Data-Driven Spiritual Guidance",
+    "accuracy_text": "Our system is trained on thousands of verified readings and psychological texts. It validates patterns across millions of data points to ensure that every reading resonates with emotional truth and logical consistency."
   }
 }

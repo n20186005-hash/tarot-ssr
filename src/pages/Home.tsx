@@ -1,6 +1,6 @@
 import { Link } from "wouter";
 import { motion } from "framer-motion";
-import { Sparkles, Moon, Sun, ArrowRight, Heart, Briefcase, Zap, Star, CheckCircle2, HelpCircle, BookOpen, MessageCircle, User } from "lucide-react";
+import { Sparkles, Moon, Sun, ArrowRight, Heart, Briefcase, Zap, Star, CheckCircle2, HelpCircle, BookOpen, MessageCircle, User, Newspaper, TrendingUp, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
@@ -349,6 +349,40 @@ export default function Home({ targetSection }: HomeProps) {
         </div>
       </section>
 
+      {/* ================= Insights ================= */}
+      <section className="py-24 relative z-10 bg-slate-900/20 border-y border-white/5">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-serif font-bold text-slate-100 mb-6">{t("insights.title")}</h2>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[1, 2, 3].map((item) => (
+              <motion.div 
+                key={item}
+                whileHover={{ y: -5 }}
+                className="group p-8 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-white/10 hover:bg-slate-800/60 transition-all duration-300 cursor-pointer"
+              >
+                <div className="mb-6">
+                  {item === 1 && <BookOpen className="w-8 h-8 text-amber-300" />}
+                  {item === 2 && <Users className="w-8 h-8 text-emerald-300" />}
+                  {item === 3 && <TrendingUp className="w-8 h-8 text-purple-300" />}
+                </div>
+                <h3 className="text-xl font-serif font-bold text-slate-100 mb-3 group-hover:text-amber-100 transition-colors">
+                  {t(`insights.article_${item}_title`)}
+                </h3>
+                <p className="text-slate-400 text-sm leading-relaxed">
+                  {t(`insights.article_${item}_desc`)}
+                </p>
+                <div className="mt-6 flex items-center text-xs font-bold text-indigo-400 uppercase tracking-widest group-hover:text-indigo-300">
+                  Read Article <ArrowRight className="w-3 h-3 ml-2" />
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ================= FAQ ================= */}
       <section className="py-32 relative z-10">
         <div className="container mx-auto px-4 max-w-3xl">
@@ -378,6 +412,38 @@ export default function Home({ targetSection }: HomeProps) {
                 </p>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ================= SEO Guide (Text Heavy) ================= */}
+      <section className="py-24 relative z-10 bg-slate-950/50 border-t border-white/5">
+        <div className="container mx-auto px-4 max-w-4xl text-slate-400 space-y-16">
+          <div className="text-center">
+             <h2 className="text-3xl font-serif font-bold text-slate-200 mb-8">{t("seo_guide.title")}</h2>
+             <div className="w-24 h-1 bg-slate-800 mx-auto rounded-full" />
+          </div>
+
+          <div className="space-y-6">
+            <h3 className="text-2xl font-serif font-bold text-slate-300">{t("seo_guide.intro_title")}</h3>
+            <p className="leading-loose text-lg">{t("seo_guide.intro_text")}</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div className="space-y-4">
+              <h3 className="text-xl font-bold text-slate-300 flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full bg-amber-500" />
+                {t("seo_guide.history_title")}
+              </h3>
+              <p className="leading-relaxed">{t("seo_guide.history_text")}</p>
+            </div>
+            <div className="space-y-4">
+              <h3 className="text-xl font-bold text-slate-300 flex items-center gap-2">
+                 <div className="w-2 h-2 rounded-full bg-indigo-500" />
+                 {t("seo_guide.accuracy_title")}
+              </h3>
+              <p className="leading-relaxed">{t("seo_guide.accuracy_text")}</p>
+            </div>
           </div>
         </div>
       </section>
