@@ -15,7 +15,6 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"), // 确保路径别名正常工作
     },
   },
-  base: "./", // 确保打包后路径正确
   server: {
     host: true, // 允许局域网访问
     port: 5173,
