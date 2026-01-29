@@ -1,6 +1,6 @@
 import { Link } from "wouter";
 import { motion } from "framer-motion";
-import { Sparkles, Moon, Sun, ArrowRight, Heart, Briefcase, Zap, Star } from "lucide-react";
+import { Sparkles, Moon, Sun, ArrowRight, Heart, Briefcase, Zap, Star, CheckCircle2, HelpCircle, BookOpen, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
@@ -166,6 +166,147 @@ export default function Home({ targetSection }: HomeProps) {
               borderColor="group-hover:border-cyan-500/30"
               comingSoon
             />
+          </div>
+        </div>
+      </section>
+
+      {/* ================= How It Works ================= */}
+      <section className="py-24 relative z-10 bg-slate-900/30 border-y border-white/5">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-serif font-bold text-slate-100 mb-4">{t("how_it_works.title")}</h2>
+            <p className="text-slate-400 max-w-xl mx-auto">{t("how_it_works.desc")}</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            {[1, 2, 3].map((step) => (
+              <motion.div 
+                key={step}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: step * 0.2 }}
+                className="relative p-8 rounded-2xl bg-slate-800/20 border border-white/5 backdrop-blur-sm text-center group hover:bg-slate-800/40 transition-colors"
+              >
+                <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-indigo-500/10 flex items-center justify-center text-2xl font-serif font-bold text-indigo-300 group-hover:scale-110 transition-transform border border-indigo-500/20">
+                  {step}
+                </div>
+                <h3 className="text-xl font-bold text-slate-200 mb-3">{t(`how_it_works.step_${step}_title`)}</h3>
+                <p className="text-slate-400 text-sm leading-relaxed">{t(`how_it_works.step_${step}_desc`)}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ================= Why Choose Us ================= */}
+      <section className="py-24 relative z-10">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div className="space-y-8">
+              <h2 className="text-3xl md:text-5xl font-serif font-bold text-slate-100 leading-tight">
+                {t("why_us.title")}
+              </h2>
+              <p className="text-slate-400 text-lg leading-relaxed">
+                {t("why_us.desc")}
+              </p>
+              
+              <div className="space-y-6">
+                {[1, 2, 3].map((item) => (
+                  <div key={item} className="flex gap-4">
+                    <div className="mt-1">
+                      <CheckCircle2 className="w-6 h-6 text-emerald-400" />
+                    </div>
+                    <div>
+                      <h4 className="text-lg font-bold text-slate-200 mb-1">{t(`why_us.benefit_${item}_title`)}</h4>
+                      <p className="text-slate-400 text-sm">{t(`why_us.benefit_${item}_desc`)}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-indigo-500/20 blur-3xl rounded-full" />
+              <div className="relative grid grid-cols-2 gap-4">
+                <div className="space-y-4 mt-8">
+                  <div className="h-48 rounded-2xl bg-slate-800/50 border border-white/10 backdrop-blur-md p-6 flex flex-col justify-end">
+                    <Sparkles className="w-8 h-8 text-amber-300 mb-2" />
+                    <span className="text-slate-300 font-medium">AI Analysis</span>
+                  </div>
+                  <div className="h-32 rounded-2xl bg-indigo-900/30 border border-white/10 backdrop-blur-md p-6 flex flex-col justify-end">
+                    <Zap className="w-8 h-8 text-purple-300 mb-2" />
+                    <span className="text-slate-300 font-medium">Instant</span>
+                  </div>
+                </div>
+                <div className="space-y-4">
+                  <div className="h-32 rounded-2xl bg-slate-800/50 border border-white/10 backdrop-blur-md p-6 flex flex-col justify-end">
+                    <Heart className="w-8 h-8 text-pink-300 mb-2" />
+                    <span className="text-slate-300 font-medium">Empathetic</span>
+                  </div>
+                  <div className="h-48 rounded-2xl bg-slate-800/50 border border-white/10 backdrop-blur-md p-6 flex flex-col justify-end">
+                    <BookOpen className="w-8 h-8 text-blue-300 mb-2" />
+                    <span className="text-slate-300 font-medium">Deep Wisdom</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ================= Tarot Knowledge ================= */}
+      <section className="py-24 relative z-10 bg-slate-900/30 border-y border-white/5">
+        <div className="container mx-auto px-4 text-center">
+          <BookOpen className="w-12 h-12 text-indigo-400 mx-auto mb-6" />
+          <h2 className="text-3xl md:text-4xl font-serif font-bold text-slate-100 mb-12">Unlock the Arcana</h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <div className="p-8 rounded-2xl bg-gradient-to-br from-amber-900/20 to-slate-900 border border-amber-500/20 text-left">
+              <h3 className="text-2xl font-serif font-bold text-amber-100 mb-4">Major Arcana</h3>
+              <p className="text-slate-400 leading-relaxed mb-6">
+                The 22 cards representing life's karmic and spiritual lessons. They signify important milestones and major events.
+              </p>
+              <div className="flex gap-2">
+                <span className="px-3 py-1 rounded-full bg-amber-500/10 text-amber-300 text-xs border border-amber-500/20">The Fool</span>
+                <span className="px-3 py-1 rounded-full bg-amber-500/10 text-amber-300 text-xs border border-amber-500/20">The World</span>
+              </div>
+            </div>
+            
+            <div className="p-8 rounded-2xl bg-gradient-to-br from-slate-800/50 to-slate-900 border border-slate-700/50 text-left">
+              <h3 className="text-2xl font-serif font-bold text-slate-200 mb-4">Minor Arcana</h3>
+              <p className="text-slate-400 leading-relaxed mb-6">
+                The 56 cards reflecting the trials and tribulations that we experience on a daily basis. Wands, Cups, Swords, and Pentacles.
+              </p>
+              <div className="flex gap-2">
+                <span className="px-3 py-1 rounded-full bg-slate-700/50 text-slate-300 text-xs border border-slate-600">Suits</span>
+                <span className="px-3 py-1 rounded-full bg-slate-700/50 text-slate-300 text-xs border border-slate-600">Elements</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ================= FAQ ================= */}
+      <section className="py-24 relative z-10">
+        <div className="container mx-auto px-4 max-w-3xl">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-slate-100 mb-4">{t("faq.title")}</h2>
+            <HelpCircle className="w-8 h-8 text-slate-500 mx-auto" />
+          </div>
+          
+          <div className="space-y-6">
+            {[1, 2, 3].map((item) => (
+              <div key={item} className="p-6 rounded-xl bg-slate-800/30 border border-white/5 hover:bg-slate-800/50 transition-colors">
+                <h3 className="text-lg font-bold text-slate-200 mb-2 flex items-center gap-3">
+                  <MessageCircle className="w-5 h-5 text-indigo-400" />
+                  {t(`faq.q${item}`)}
+                </h3>
+                <p className="text-slate-400 pl-8 leading-relaxed">
+                  {t(`faq.a${item}`)}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

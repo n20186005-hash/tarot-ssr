@@ -73,5 +73,34 @@
     "about_us": "About Us",
     "privacy": "Privacy Policy",
     "terms": "Terms of Service"
+  },
+  "how_it_works": {
+    "title": "How It Works",
+    "desc": "Three simple steps to unlock the wisdom of the universe.",
+    "step_1_title": "Focus & Ask",
+    "step_1_desc": "Clear your mind and concentrate on your question or situation.",
+    "step_2_title": "Draw Your Cards",
+    "step_2_desc": "Trust your intuition and select the cards that call to you.",
+    "step_3_title": "AI Interpretation",
+    "step_3_desc": "Receive instant, deep, and personalized insights powered by advanced AI."
+  },
+  "why_us": {
+    "title": "Why Choose AI Tarot?",
+    "desc": "Merging ancient mysticism with modern intelligence for clarity.",
+    "benefit_1_title": "Instant Clarity",
+    "benefit_1_desc": "No waiting for appointments. Get guidance whenever you need it, 24/7.",
+    "benefit_2_title": "Objective & Unbiased",
+    "benefit_2_desc": "AI provides interpretations free from human bias, focusing purely on the card meanings.",
+    "benefit_3_title": "Deep Analysis",
+    "benefit_3_desc": "Our AI is trained on thousands of tarot texts to provide nuanced and profound readings."
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "q1": "Is AI Tarot accurate?",
+    "a1": "AI Tarot combines traditional card meanings with context-aware analysis to provide surprisingly relevant and accurate insights.",
+    "q2": "Can I ask the same question twice?",
+    "a2": "It is recommended to wait a while before asking the same question again to allow energies to shift.",
+    "q3": "Is this free?",
+    "a3": "Yes, our core readings are free to use."
   }
 }
