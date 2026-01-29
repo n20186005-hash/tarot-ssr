@@ -19,7 +19,7 @@ const HomePage: any = Home;
 
 function AppRouter() {
   return (
-    <Router hook={useHashLocation}>
+    <Router>
       <Switch>
         <Route path="/" component={HomePage} />
         <Route path="/yes-no-tarot" component={YesNoTarot} />
