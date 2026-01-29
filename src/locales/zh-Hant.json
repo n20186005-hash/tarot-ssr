@@ -64,5 +64,14 @@
     "ai_title": "AI 深度解讀",
     "ai_mock_content": "根據牌陣顯示，{{cardName}}揭示了這一問題的核心能量。{{themes}} 建議你保持覺察，聆聽內心的指引。",
     "new_reading": "開始新的占卜"
+  },
+  "footer": {
+    "slogan": "您的 AI 驅動心靈嚮導，為您帶來清晰與洞察。",
+    "contact_us": "聯繫我們",
+    "quick_links": "快速連結",
+    "friend_links": "友情連結",
+    "about_us": "關於我們",
+    "privacy": "隱私政策",
+    "terms": "服務條款"
   }
 }

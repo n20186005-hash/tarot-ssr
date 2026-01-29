@@ -10,7 +10,7 @@ interface SEOProps {
 
 export function SEO({ title, description, path = "" }: SEOProps) {
   // Base URL (replace with actual domain in production)
-  const baseUrl = "https://tarot-ssr.pages.dev";
+  const baseUrl = "https://tarotread.net";
   const url = `${baseUrl}${path}`;
 
   const { t, ready } = useTranslation();

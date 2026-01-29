@@ -5,10 +5,14 @@ import { useHashLocation } from "wouter/use-hash-location";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
+import { Footer } from "@/components/Footer";
 import Home from "@/pages/Home";
 import YesNoTarot from "@/pages/YesNoTarot";
 import ThreeCardSpread from "@/pages/ThreeCardSpread";
 import DailyTarot from "@/pages/DailyTarot";
+import About from "@/pages/About";
+import Privacy from "@/pages/Privacy";
+import Terms from "@/pages/Terms";
 
 // Type assertion wrapper to satisfy wouter's strict typing
 const HomePage: any = Home;
@@ -21,6 +25,9 @@ function AppRouter() {
         <Route path="/yes-no-tarot" component={YesNoTarot} />
         <Route path="/three-card" component={ThreeCardSpread} />
         <Route path="/daily-tarot" component={DailyTarot} />
+        <Route path="/about" component={About} />
+        <Route path="/privacy" component={Privacy} />
+        <Route path="/terms" component={Terms} />
       </Switch>
     </Router>
   );
@@ -55,6 +62,7 @@ function App() {
               </div>
               
               <AppRouter />
+              <Footer />
             </div>
           </div>
           {/* ================= 修改重点结束 ================= */}

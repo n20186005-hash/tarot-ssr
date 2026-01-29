@@ -64,5 +64,14 @@
     "ai_title": "AI Deep Interpretation",
     "ai_mock_content": "According to the spread, {{cardName}} reveals the core energy of this issue. {{themes}} Suggest keeping aware and listening to inner guidance.",
     "new_reading": "Start New Reading"
+  },
+  "footer": {
+    "slogan": "Your AI-powered spiritual guide for clarity and insight.",
+    "contact_us": "Contact Us",
+    "quick_links": "Quick Links",
+    "friend_links": "Friend Links",
+    "about_us": "About Us",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service"
   }
 }
