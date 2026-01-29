@@ -9,6 +9,7 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
+  base: "/", // Must be absolute path for History API routing
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"), // 确保路径别名正常工作
