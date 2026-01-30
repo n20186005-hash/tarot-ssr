@@ -10,6 +10,7 @@ export function Footer() {
     { name: "The Forge Calculator", url: "https://forgecalc.org" },
     { name: "Dream Whisper AI", url: "https://dreamwhisperai.com" },
     { name: "Arcana AI", url: "https://arcanaai.org" },
+    { name: "Open Claw AI", url: "https://openclawai.net" },
     { name: "Fun Games Today", url: "https://fungames.today" },
     { name: "Toolbox Pro", url: "https://toolboxpro.top" },
     { name: "Tarotread", url: "https://tarotread.net" },
